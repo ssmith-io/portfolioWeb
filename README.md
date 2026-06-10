@@ -2,7 +2,8 @@
 
 ## Sarah Smith Portfolio
 Personal portfolio web application. Showcases projects and skills. 
- ## Live Site
+
+## Live Site
 View portfolio here: http://www.____.com 
 
 
