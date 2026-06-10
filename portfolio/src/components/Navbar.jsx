@@ -15,12 +15,12 @@ export default function Navbar() {
       </a>
 
       <ul className="flex gap-10 list-none m-0 p-0">
-        {['Work', 'Services', 'About'].map((item) => (
+        {['About', 'Projects', 'Contact'].map((item) => (
           <li key={item}>
             <a
               href={`#${item.toLowerCase()}`}
-              style={{ fontFamily: "'Instrument Sans', sans-serif", color: 'var(--mid)', fontSize: 14, letterSpacing: '0.04em' }}
-              className="no-underline transition-colors duration-200 hover:[color:var(--ink)]"
+              style={{ fontFamily: "'DM Mono', monospace", color: 'var(--mid)', fontSize: 13, letterSpacing: '0.08em' }}
+              className="no-underline uppercase transition-colors duration-200 hover:[color:var(--accent-hover)]"
             >
               {item}
             </a>
@@ -35,10 +35,10 @@ export default function Navbar() {
           fontSize: 12,
           letterSpacing: '0.08em',
           color: 'var(--paper)',
-          background: 'var(--ink)',
-          border: '1.5px solid var(--ink)',
+          background: 'var(--accent)',
+          border: '1.5px solid var(--accent)',
         }}
-        className="no-underline font-medium uppercase px-5 py-2 transition-all duration-200 hover:[background:var(--accent)] hover:[border-color:var(--accent)]"
+        className="no-underline font-medium uppercase px-5 py-2 transition-all duration-200 hover:[background:var(--accent-hover)] hover:[border-color:var(--accent-hover)]"
       >
         Hire Me
       </a>

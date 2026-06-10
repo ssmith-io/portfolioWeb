@@ -5,13 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-  --ink: #0f0e0d;
-  --paper: #f5f2ec;
-  --accent: #e8440a;
-  --accent2: #1a3a6b;
-  --mid: #7a776f;
-  --border: #d9d4ca;
-  --card: #fffdf9;
+  --ink: #fff6fd;
+  --paper: #0b0b0f;
+  --accent: #f2a7d8;
+  --accent-hover: #ff7eb6;
+  --mid: #c4b3bb;
+  --border: #2a2825;
+  --card: #17171d;
 }
 
 html {
@@ -27,7 +27,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Marquee animation */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -36,7 +35,6 @@ body {
   animation: marquee 20s linear infinite;
 }
 
-/* Fade up animation */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -46,13 +44,11 @@ body {
 .animate-fade-up-3 { animation: fadeUp 0.7s 0.2s ease both; }
 .animate-fade-up-4 { animation: fadeUp 0.7s 0.3s ease both; }
 
-/* Outline text */
 .text-outline {
   -webkit-text-stroke: 2px var(--ink);
   color: transparent;
 }
 
-/* Project card hover group */
 .project-card:hover .project-arrow {
   opacity: 1;
   transform: translate(0, 0);

@@ -1,5 +1,5 @@
 import SectionHeader from './SectionHeader'
-import { siteConfig, aboutMetrics } from '../data/content'
+import { siteConfig} from '../data/content'
 
 export default function About() {
   return (
@@ -26,40 +26,6 @@ export default function About() {
             <p key={i} style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
               {para}
             </p>
-          ))}
-        </div>
-
-        {/* Metrics */}
-        <div className="flex flex-col gap-10">
-          {aboutMetrics.map((metric, i) => (
-            <div
-              key={metric.num}
-              className="flex items-start gap-6"
-              style={{
-                paddingBottom: i < aboutMetrics.length - 1 ? '2.5rem' : 0,
-                borderBottom: i < aboutMetrics.length - 1 ? '1px solid var(--border)' : 'none',
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: '3rem',
-                  fontWeight: 800,
-                  lineHeight: 1,
-                  color: 'var(--accent)',
-                  letterSpacing: '-0.04em',
-                  minWidth: '4rem',
-                }}
-              >
-                {metric.num}
-              </div>
-              <div>
-                <strong className="block mb-1" style={{ fontSize: 15, fontWeight: 500 }}>
-                  {metric.label}
-                </strong>
-                <span style={{ fontSize: 13, color: 'var(--mid)' }}>{metric.sublabel}</span>
-              </div>
-            </div>
           ))}
         </div>
       </div>

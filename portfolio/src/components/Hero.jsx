@@ -1,145 +1,112 @@
-import { siteConfig, stats, skills } from '../data/content'
+import { siteConfig, skills } from '../data/content'
 
 export default function Hero() {
-  const [build, deploy, scale] = siteConfig.tagline.split('. ')
-
   return (
     <section
-      className="grid min-h-screen"
-      style={{ gridTemplateColumns: '1fr 1fr', paddingTop: 80 }}
+      className="flex flex-col items-center justify-center text-center min-h-screen px-12"
+      style={{ paddingTop: 80, background: 'var(--paper)' }}
     >
-      {/* Left */}
+      {/* Avatar */}
       <div
-        className="flex flex-col justify-center px-12 py-28"
-        style={{ borderRight: '1px solid var(--border)' }}
+        className="animate-fade-up-1 flex items-center justify-center mb-8 rounded-full"
+        style={{
+          width: 96,
+          height: 96,
+          background: 'var(--card)',
+          border: '2px solid var(--accent)',
+          fontFamily: "'Syne', sans-serif",
+          fontSize: '2rem',
+          fontWeight: 800,
+          color: 'var(--accent)',
+        }}
       >
-        <p
-          className="animate-fade-up-1 uppercase mb-8"
-          style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: '0.12em', color: 'var(--accent)' }}
-        >
-          // {siteConfig.availability}
-        </p>
-
-        <h1
-          className="animate-fade-up-2 mb-8"
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: 'clamp(3.5rem, 6vw, 6rem)',
-            fontWeight: 800,
-            lineHeight: 0.95,
-            letterSpacing: '-0.03em',
-          }}
-        >
-          <span style={{ color: 'var(--accent)' }}>{build}.</span>
-          <br />
-          <span className="text-outline">{deploy}.</span>
-          <br />
-          {scale}.
-        </h1>
-
-        <p
-          className="animate-fade-up-3 mb-12"
-          style={{ maxWidth: 380, fontSize: 16, lineHeight: 1.7, color: 'var(--mid)' }}
-        >
-          {siteConfig.description}
-        </p>
-
-        <div className="animate-fade-up-4 flex gap-4 items-center">
-          <a
-            href="#work"
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 12,
-              letterSpacing: '0.1em',
-              color: 'var(--paper)',
-              background: 'var(--accent)',
-              border: '2px solid var(--accent)',
-            }}
-            className="no-underline font-medium uppercase px-8 py-4 transition-all duration-200 hover:[background:var(--ink)] hover:[border-color:var(--ink)]"
-          >
-            View Work
-          </a>
-          <a
-            href="#contact"
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 12,
-              letterSpacing: '0.1em',
-              color: 'var(--ink)',
-              border: '2px solid var(--ink)',
-            }}
-            className="no-underline font-medium uppercase px-8 py-4 transition-all duration-200 hover:[background:var(--ink)] hover:[color:var(--paper)]"
-          >
-            Let's Talk
-          </a>
-        </div>
+        {siteConfig.name.split(' ').map(n => n[0]).join('')}
       </div>
 
-      {/* Right */}
-      <div
-        className="flex flex-col justify-end px-12 py-28 gap-12 relative overflow-hidden"
+      {/* Name */}
+      <h1
+        className="animate-fade-up-2 mb-3"
+        style={{
+          fontFamily: "'Syne', sans-serif",
+          fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+          fontWeight: 800,
+          lineHeight: 1,
+          letterSpacing: '-0.03em',
+          color: 'var(--ink)',
+        }}
       >
-        {/* Background graphic */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            top: '6rem',
-            right: '2rem',
-            fontFamily: "'Syne', sans-serif",
-            fontSize: '22vw',
-            fontWeight: 800,
-            color: 'var(--border)',
-            lineHeight: 1,
-            pointerEvents: 'none',
-            userSelect: 'none',
-            zIndex: 0,
-          }}
-        >
-          {'</>'}
-        </div>
+        {siteConfig.name}
+      </h1>
 
-        {/* Stats */}
-        <div className="flex flex-col gap-8 relative z-10">
-          {stats.map(({ num, label }) => (
-            <div key={num} style={{ borderLeft: '3px solid var(--accent)', paddingLeft: '1.5rem' }}>
-              <div
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: '3rem',
-                  fontWeight: 800,
-                  lineHeight: 1,
-                  letterSpacing: '-0.04em',
-                }}
-              >
-                {num}
-              </div>
-              <div style={{ fontSize: 13, color: 'var(--mid)', marginTop: '0.25rem', fontStyle: 'italic' }}>
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Title */}
+      <p
+        className="animate-fade-up-2 mb-6 uppercase"
+        style={{
+          fontFamily: "'DM Mono', monospace",
+          fontSize: 13,
+          letterSpacing: '0.15em',
+          color: 'var(--accent)',
+        }}
+      >
+        {siteConfig.title}
+      </p>
 
-        {/* Skills */}
-        <div className="flex flex-wrap gap-2 relative z-10">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: 11,
-                letterSpacing: '0.06em',
-                padding: '0.4rem 0.9rem',
-                border: '1px solid var(--border)',
-                background: 'var(--card)',
-                color: 'var(--mid)',
-              }}
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
+      {/* Bio */}
+      <p
+        className="animate-fade-up-3 mb-10"
+        style={{
+          maxWidth: 520,
+          fontSize: 16,
+          lineHeight: 1.8,
+          color: 'var(--mid)',
+        }}
+      >
+        {siteConfig.description}
+      </p>
+
+      {/* Social links */}
+      <div className="animate-fade-up-4 flex gap-4 mb-12">
+        {Object.entries(siteConfig.socials).map(([label, href]) => (
+          <a
+            key={label}
+            href={href}
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 11,
+              letterSpacing: '0.08em',
+              color: 'var(--mid)',
+              border: '1px solid var(--border)',
+              background: 'var(--card)',
+              padding: '0.5rem 1rem',
+              textDecoration: 'none',
+              textTransform: 'uppercase',
+              transition: 'color 0.2s, border-color 0.2s',
+            }}
+            className="hover:[color:var(--accent-hover)] hover:[border-color:var(--accent-hover)]"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
+      {/* Skill pills */}
+      <div className="animate-fade-up-4 flex flex-wrap justify-center gap-2" style={{ maxWidth: 560 }}>
+        {skills.map((skill) => (
+          <span
+            key={skill}
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 11,
+              letterSpacing: '0.06em',
+              padding: '0.35rem 0.85rem',
+              border: '1px solid var(--border)',
+              background: 'var(--card)',
+              color: 'var(--mid)',
+            }}
+          >
+            {skill}
+          </span>
+        ))}
       </div>
     </section>
   )
