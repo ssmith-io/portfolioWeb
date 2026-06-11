@@ -28,6 +28,7 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'PhishWise',
     num: '01',
     title: 'PhishWise Cyber Security Training',
     description:
@@ -35,36 +36,9 @@ export const projects = [
     tags: ['Typescript', 'React', 'Next.js', 'PostgreSQL', 'Vercel'],
     type: 'Full-Stack Web Application',
     link: 'https://www.phishwise.org/',
-  },
-  {
-    num: '02',
-    title: 'Nexus E-Commerce Storefront',
-    description:
-      'High-conversion storefront for a DTC brand doing $8M ARR. 98 Lighthouse score, sub-1s load times globally.',
-    tags: ['Next.js', 'Vercel', 'Shopify', 'TypeScript'],
-    type: 'E-Commerce · Frontend',
-    link: '#',
-  },
-  {
-    num: '03',
-    title: 'Zero-Downtime Migration Pipeline',
-    description:
-      'Led a full infra migration from on-prem to AWS EKS for a 50-person SaaS startup. Zero service interruptions across 3 weeks.',
-    tags: ['Kubernetes', 'Helm', 'GitHub Actions', 'RDS'],
-    type: 'DevOps · Cloud Migration',
-    link: '#',
-  },
-  {
-    num: '04',
-    title: 'Aria Design System',
-    description:
-      'Component library and documentation site used by 3 product teams. 120+ accessible components, full Figma integration.',
-    tags: ['React', 'Storybook', 'Radix UI', 'CSS Modules'],
-    type: 'Frontend · Design System',
-    link: '#',
+    details: '',
   },
 ]
-
 
 export const marqueeItems = [
   'Frontend Development',

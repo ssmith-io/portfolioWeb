@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import SectionHeader from './SectionHeader'
 import { projects } from '../data/content'
+import { Link } from 'react-router-dom'
 
-function ProjectCard({ num, title, description, tags, type, link }) {
+function ProjectCard({ id, num, title, description, tags, type }) {
   const [hovered, setHovered] = useState(false)
 
   return (
-    <a
-      href={link}
+    <Link
+      to={`/projects/${id}`}
       className="project-card block relative overflow-hidden p-10 transition-all duration-300 no-underline"
       style={{
         background: hovered ? 'var(--ink)' : 'var(--card)',
@@ -71,7 +72,6 @@ function ProjectCard({ num, title, description, tags, type, link }) {
         {type}
       </div>
 
-      {/* Arrow */}
       <span
         style={{
           position: 'absolute',
@@ -86,7 +86,7 @@ function ProjectCard({ num, title, description, tags, type, link }) {
       >
         ↗
       </span>
-    </a>
+    </Link>
   )
 }
 
