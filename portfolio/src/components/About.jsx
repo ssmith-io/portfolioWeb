@@ -1,5 +1,5 @@
-import SectionHeader from './SectionHeader'
-import { personalData} from '../data/content'
+import { Link } from 'react-router-dom'
+import { personalData } from '../data/content'
 
 export default function About() {
   return (
@@ -12,23 +12,57 @@ export default function About() {
       }}
       id="about"
     >
-      <SectionHeader tag="// Who I Am" title="About" />
+      <p
+        className="uppercase mb-3"
+        style={{
+          fontFamily: "'DM Mono', monospace",
+          fontSize: 11, letterSpacing: '0.12em',
+          color: 'var(--accent)',
+        }}
+      >
+        // Who I Am
+      </p>
 
-      <div className="grid gap-24" style={{ gridTemplateColumns: '1fr 1fr', alignItems: 'start' }}>
-        {/* Bio */}
-        <div className="flex flex-col gap-6">
-          {[
-            <>I'm <strong style={{ color: 'var(--ink)', fontWeight: 500 }}>{personalData.name}</strong>, a freelance software developer. I specialize in building the parts that users see — and the infrastructure that keeps it all running.</>,
-            <>After 6 years working inside product teams at startups and scale-ups, I went independent to work with a wider range of companies on the problems I find most interesting: fast frontends, resilient cloud systems, and the bridge between design and engineering.</>,
-            <>I care about <strong style={{ color: 'var(--ink)', fontWeight: 500 }}>outcomes, not just outputs</strong>. That means understanding your business context, communicating clearly throughout, and delivering code that your team can own after I'm gone.</>,
-            <>{personalData.availability}. If your timeline is tight, reach out early.</>,
-          ].map((para, i) => (
-            <p key={i} style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
-              {para}
-            </p>
-          ))}
-        </div>
-      </div>
+      <h2
+        className="mb-10"
+        style={{
+          fontFamily: "'Syne', sans-serif",
+          fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+          fontWeight: 800, lineHeight: 1,
+          letterSpacing: '-0.03em', color: 'var(--ink)',
+        }}
+      >
+        About Me
+      </h2>
+
+      <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2.5rem' }} />
+
+      <p
+        style={{
+          fontSize: 17, lineHeight: 1.8,
+          color: 'var(--mid)', maxWidth: 640,
+          marginBottom: '2.5rem',
+        }}
+      >
+        {personalData.description}
+      </p>
+
+      <Link
+        to="/about"
+        style={{
+          fontFamily: "'DM Mono', monospace",
+          fontSize: 12, letterSpacing: '0.08em',
+          color: 'var(--accent)',
+          border: '1px solid var(--accent)',
+          padding: '0.75rem 1.5rem',
+          textDecoration: 'none',
+          textTransform: 'uppercase',
+          display: 'inline-block',
+        }}
+        className="hover:[background:var(--accent)] hover:[color:var(--paper)] transition-all duration-200"
+      >
+        More About Me →
+      </Link>
     </section>
   )
 }

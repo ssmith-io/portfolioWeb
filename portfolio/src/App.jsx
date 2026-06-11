@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectsPage from './pages/ProjectsPage'
 import ProjectDetail from './pages/ProjectDetail'
+import AboutPage from './pages/AboutPage'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Contact />
           </main>
         } />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:id" element={<ProjectDetail />} />
       </Routes>

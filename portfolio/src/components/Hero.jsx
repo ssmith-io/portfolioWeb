@@ -1,4 +1,5 @@
 import { personalData, skills } from '../data/content'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
@@ -47,18 +48,6 @@ export default function Hero() {
         {personalData.title}
       </p>
 
-      {/* Bio */}
-      <p
-        className="animate-fade-up-3 mb-10"
-        style={{
-          maxWidth: 520,
-          fontSize: 16,
-          lineHeight: 1.8,
-          color: 'var(--mid)',
-        }}
-      >
-        {personalData.description}
-      </p>
 
       {/* Social links */}
       <div className="animate-fade-up-4 flex gap-4 mb-12">
@@ -67,7 +56,7 @@ export default function Hero() {
             key={label}
             href={href}
             target="_blank"
-            rel="nonreferrer"
+            rel="noreferrer"
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: 11,
