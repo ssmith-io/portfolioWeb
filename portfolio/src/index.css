@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --ink: #fff6fd;
+  --paper: #0b0b0f;
+  --accent: #f2a7d8;
+  --accent-hover: #ff7eb6;
+  --mid: #c4b3bb;
+  --border: #2a2825;
+  --card: #17171d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up-1 { animation: fadeUp 0.6s ease both; }
+.animate-fade-up-2 { animation: fadeUp 0.7s 0.1s ease both; }
+.animate-fade-up-3 { animation: fadeUp 0.7s 0.2s ease both; }
+.animate-fade-up-4 { animation: fadeUp 0.7s 0.3s ease both; }
+
+.text-outline {
+  -webkit-text-stroke: 2px var(--ink);
+  color: transparent;
+}
+
+.project-card:hover .project-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
