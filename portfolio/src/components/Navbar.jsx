@@ -35,21 +35,21 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             style={{ fontFamily: "'DM Mono', monospace", color: 'var(--mid)', fontSize: 13, letterSpacing: '0.08em' }}
             className="no-underline uppercase transition-colors duration-200 hover:[color:var(--accent-hover)]"
           >
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
-        <a
-        href="#contact"
+
+      <Link
+        to="/contact"
         style={{
           fontFamily: "'DM Mono', monospace",
-          fontSize: 12,
-          letterSpacing: '0.08em',
+          fontSize: 12, letterSpacing: '0.08em',
           color: 'var(--paper)',
           background: 'var(--accent)',
           border: '1.5px solid var(--accent)',
@@ -57,7 +57,7 @@ export default function Navbar() {
         className="no-underline font-medium uppercase px-5 py-2 transition-all duration-200 hover:[background:var(--accent-hover)] hover:[border-color:var(--accent-hover)]"
       >
         Hire Me
-      </a>
+      </Link>
     </nav>
   )
 }

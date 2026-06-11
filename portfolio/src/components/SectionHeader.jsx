@@ -36,7 +36,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link
-            to="/#contact"
+            to="/contact"
             style={{ fontFamily: "'DM Mono', monospace", color: 'var(--mid)', fontSize: 13, letterSpacing: '0.08em' }}
             className="no-underline uppercase transition-colors duration-200 hover:[color:var(--accent-hover)]"
           >
