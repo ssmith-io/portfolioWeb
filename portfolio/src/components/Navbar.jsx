@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/content'
+import { personalData } from '../data/content'
 
 export default function Navbar() {
   return (
@@ -11,7 +11,7 @@ export default function Navbar() {
         style={{ fontFamily: "'DM Mono', monospace", color: 'var(--accent)', fontSize: 13, letterSpacing: '0.06em' }}
         className="font-medium no-underline"
       >
-        {siteConfig.logo}
+        {personalData.logo}
       </a>
 
       <ul className="flex gap-10 list-none m-0 p-0">

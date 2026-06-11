@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/content'
+import { personalData } from '../data/content'
 
 export default function Contact() {
   return (
@@ -37,11 +37,11 @@ export default function Contact() {
         className="mb-12"
         style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)' }}
       >
-        {siteConfig.availability}. Let's build something great.
+        {personalData.availability}. Let's build something great.
       </p>
 
       <a
-        href={`mailto:${siteConfig.email}`}
+        href={`mailto:${personalData.email}`}
         style={{
           fontFamily: "'DM Mono', monospace",
           fontSize: 13,

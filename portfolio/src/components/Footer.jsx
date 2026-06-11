@@ -1,7 +1,7 @@
-import { siteConfig } from '../data/content'
+import { personalData } from '../data/content'
 
 export default function Footer() {
-  const { logo, socials } = siteConfig
+  const { logo, socials } = personalData
   const year = new Date().getFullYear()
 
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
       </span>
 
       <span style={{ fontSize: 13, color: 'var(--mid)' }}>
-        © {year} {siteConfig.name}
+        © {year} {personalData.name}
       </span>
 
       <div className="flex gap-8">

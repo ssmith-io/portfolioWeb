@@ -1,18 +1,16 @@
-export const siteConfig = {
+export const personalData = {
   name: 'Sarah Smith',
   logo: 'SARAH.DEV',
-  email: 'sarah@example.com',
+  email: 'ssmith.io.v0@gmail.com',
   title: 'Freelance Software Developer',
-  tagline: 'Build. Deploy. Scale.',
+  tagline: 'Code. Create. Conquer.',
   description:
-    'Freelance developer specializing in high-performance web experiences and cloud infrastructure. I turn complex problems into elegant, scalable solutions.',
-  availability: 'Available for new projects — Q3 2025',
-  location: 'Based wherever the work takes me',
+    'Building considerate digital experiences and scalable solutions that empower people to create, grow, and lead.',
+  availability: 'Available for new projects',
   socials: {
-    github: '#',
-    linkedin: '#',
-    twitter: '#',
-    resume: '#',
+    github: 'https://github.com/ssmith-io',
+    linkedin: 'https://www.linkedin.com/in/s1smith/',
+    resume: '/Smith, Sarah - Resume 2026.pdf',
   },
 }
 
@@ -23,19 +21,20 @@ export const stats = [
 ]
 
 export const skills = [
-  'React', 'Next.js', 'TypeScript', 'AWS',
-  'Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'Node.js',
+  'Typescript', 'JavaScript', 'Python', 'C++', 'SQL', 'HTML/CSS',
+  'React', 'Angular', 'Next.js', 'Node.js', 'Tailwind CSS',
+  'CI/CD', 'Git',
 ]
 
 export const projects = [
   {
     num: '01',
-    title: 'CloudDash Analytics Platform',
+    title: 'PhishWise Cyber Security Training',
     description:
-      'Real-time infrastructure monitoring dashboard processing 2M+ events/day. Reduced incident response time by 60%.',
-    tags: ['AWS', 'React', 'Terraform', 'Grafana'],
-    type: 'Web App · Cloud Infrastructure',
-    link: '#',
+      'Contributed to the development of PhishWise, creating secure and user-friendly solutions that help organizations educate users and strengthen cybersecurity awareness.',
+    tags: ['Typescript', 'React', 'Next.js', 'PostgreSQL', 'Vercel'],
+    type: 'Full-Stack Web Application',
+    link: 'https://www.phishwise.org/',
   },
   {
     num: '02',

@@ -1,4 +1,4 @@
-import { siteConfig, skills } from '../data/content'
+import { personalData, skills } from '../data/content'
 
 export default function Hero() {
   return (
@@ -7,21 +7,17 @@ export default function Hero() {
       style={{ paddingTop: 80, background: 'var(--paper)' }}
     >
       {/* Avatar */}
-      <div
-        className="animate-fade-up-1 flex items-center justify-center mb-8 rounded-full"
-        style={{
-          width: 96,
-          height: 96,
-          background: 'var(--card)',
-          border: '2px solid var(--accent)',
-          fontFamily: "'Syne', sans-serif",
-          fontSize: '2rem',
-          fontWeight: 800,
-          color: 'var(--accent)',
-        }}
-      >
-        {siteConfig.name.split(' ').map(n => n[0]).join('')}
-      </div>
+      <img
+      src="/Avatar Headshot.png"
+      alt={personalData.name}
+      className="animate-fade-up-1 rounded-full mb-8"
+      style={{
+        width: 96,
+        height: 96,
+        border: '2px solid var(--accent)',
+        objectFit: 'cover',
+      }}
+      />
 
       {/* Name */}
       <h1
@@ -35,7 +31,7 @@ export default function Hero() {
           color: 'var(--ink)',
         }}
       >
-        {siteConfig.name}
+        {personalData.name}
       </h1>
 
       {/* Title */}
@@ -48,7 +44,7 @@ export default function Hero() {
           color: 'var(--accent)',
         }}
       >
-        {siteConfig.title}
+        {personalData.title}
       </p>
 
       {/* Bio */}
@@ -61,15 +57,17 @@ export default function Hero() {
           color: 'var(--mid)',
         }}
       >
-        {siteConfig.description}
+        {personalData.description}
       </p>
 
       {/* Social links */}
       <div className="animate-fade-up-4 flex gap-4 mb-12">
-        {Object.entries(siteConfig.socials).map(([label, href]) => (
+        {Object.entries(personalData.socials).map(([label, href]) => (
           <a
             key={label}
             href={href}
+            target="_blank"
+            rel="nonreferrer"
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: 11,
