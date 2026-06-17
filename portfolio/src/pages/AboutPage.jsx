@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { personalData, skills } from '../data/content'
+import SkillBars from '../components/SkillBars'
 
 export default function AboutPage() {
   return (
@@ -47,22 +48,25 @@ export default function AboutPage() {
       {/* Bio */}
       <div className="flex flex-col gap-6 mb-16">
         <p style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
-          I'm <strong style={{ color: 'var(--ink)', fontWeight: 500 }}>{personalData.name}</strong>, a freelance software developer. I specialize in building the parts that users see — and the infrastructure that keeps it all running.
+          I'm <strong style={{ color: 'var(--ink)', fontWeight: 500 }}>Sarah Smith</strong>, a Computer Science graduate from the University of Arkansas who got into coding because I loved the idea of turning creativity into something real. To me, software is just another canvas.
         </p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
-          After 6 years working inside product teams at startups and scale-ups, I went independent to work with a wider range of companies on the problems I find most interesting: fast frontends, resilient cloud systems, and the bridge between design and engineering.
+          I gravitate toward frontend, full-stack web development, and anything with a strong visual component — I care just as much about how something looks as how it works. I've got a background in graphic design that bleeds into everything I build, and I'm currently expanding into mobile development.
         </p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
-          I care about <strong style={{ color: 'var(--ink)', fontWeight: 500 }}>outcomes, not just outputs</strong>. That means understanding your business context, communicating clearly throughout, and delivering code that your team can own after I'm gone.
+          My internship at J.B. Hunt gave me a taste of what it means to ship real software in a fast-moving environment — consolidating APIs, cutting user flows in half, collaborating across Agile teams. I work independently, communicate clearly, and I don't need hand-holding to get things done.
         </p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
-          Available for new projects. If your timeline is tight, reach out early.
+          Outside of tech you'll find me at the gym, deep in a good book, or curating the perfect playlist. I spent a year DJing for 500+ people weekly — which taught me more about reading a room and performing under pressure than any classroom did.
+        </p>
+        <p style={{ fontSize: 17, lineHeight: 1.8, color: 'var(--mid)' }}>
+          I'm open to freelance projects and collaboration. If you've got something you want to build, I'd love to hear about it.
         </p>
       </div>
 
       <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2.5rem' }} />
 
-      {/* Skills */}
+     {/* Skills */}
       <p
         className="uppercase mb-6"
         style={{
@@ -74,25 +78,9 @@ export default function AboutPage() {
         // Skills & Tools
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-16">
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 12, letterSpacing: '0.06em',
-              padding: '0.4rem 1rem',
-              border: '1px solid var(--border)',
-              background: 'var(--card)',
-              color: 'var(--mid)',
-            }}
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
+      <SkillBars />
 
-      <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2.5rem' }} />
+      <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2.5rem', marginTop: '3rem' }} />
 
       {/* Currently */}
       <p
@@ -111,9 +99,8 @@ export default function AboutPage() {
         style={{ background: 'var(--card)', border: '1px solid var(--border)' }}
       >
         {[
-          { label: 'Working on', value: 'This portfolio and my first freelance clients' },
-          { label: 'Learning', value: 'Write what you are currently studying' },
-          { label: 'Reading', value: 'Write what you are reading' },
+          { label: 'Working on', value: 'This portfolio and personal projects.' },
+          { label: 'Learning', value: 'Recent Univerity of Arkansas Graduate' },
           { label: 'Available for', value: personalData.availability },
         ].map(({ label, value }, i, arr) => (
           <div

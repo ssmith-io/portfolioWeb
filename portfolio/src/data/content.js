@@ -2,7 +2,7 @@ export const personalData = {
   name: 'Sarah Smith',
   logo: 'SARAH.DEV',
   email: 'ssmith.io.v0@gmail.com',
-  title: 'Freelance Software Developer',
+  title: 'Software Developer',
   tagline: 'Code. Create. Conquer.',
   description:
     'Building considerate digital experiences and scalable solutions that empower people to create, grow, and lead.',
