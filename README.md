@@ -1,23 +1,29 @@
 # portfolioWeb
 
 ## Sarah Smith Portfolio
-Personal portfolio web application. Showcases projects and skills. 
 
 ## Live Site
-View portfolio here: http://www.____.com 
+View portfolio here: https://portfolio-qjfmk4zuv-ssmith-io-2728s-projects.vercel.app/ 
 
 
 ## About
-
+A personal portfolio and freelance developer website built to showcase my projects, skills, and experience. Designed with a dark aesthetic and built from scratch using React and Tailwind CSS.
 
 ## Features
+- Multi-page routing with React Router (Home, About, Projects, Contact)
+- Project detail pages with full write-ups
+- Contact form with email integration
+- Responsive design with custom dark theme
+- Smooth scroll animations and hover interactions
+- Resume download link
 
 
 ## Technologies
-
-
-## Screenshots 
-
+- React 18
+- Vite
+- Tailwind CSS
+- React Router DOM
+- JavaScript / JSX
 
 ## Installation 
 1. Clone repository
@@ -44,6 +50,11 @@ src/
 │   ├── Testimonials.jsx
 │   ├── Contact.jsx
 │   └── Footer.jsx
+├── pages/
+│   ├── AboutPage.jsx
+│   ├── ContactPage.jsx
+│   ├── ProjectDetail.jsx
+│   ├── ProjectsPage.jsx
 ├── App.jsx              
 ├── index.css            
 └── main.jsx             
