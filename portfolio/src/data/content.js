@@ -1,5 +1,5 @@
 
-import phishWiseImage from "../public/PhishWise Cover.jpg"
+import phishWiseImage from "/PhishWise Cover.jpg"
 
 export const personalData = {
   name: 'Sarah Smith',
