@@ -16,7 +16,7 @@ export default function ProjectDetail() {
     )
   }
 
-  const { title, tags, type, details } = project
+  const { title, tags, type, link, details } = project
 
   return (
     <section className="px-12 py-28" style={{ minHeight: '100vh', maxWidth: 800, margin: '0 auto' }}>
@@ -89,42 +89,88 @@ export default function ProjectDetail() {
         {details.overview}
       </p>
 
-      {/* Meta */}
-      <div
-        className="grid gap-6 mb-10 p-8"
+      {/* Key Features */}
+      <div className="mb-14">
+      <p
+        className="uppercase mb-5"
         style={{
-          gridTemplateColumns: '1fr 1fr',
-          background: 'var(--card)',
-          border: '1px solid var(--border)',
+          fontFamily: "'DM Mono', monospace",
+          fontSize: 12,
+          letterSpacing: "0.12em",
+          color: "var(--accent)",
         }}
       >
-        <div>
-          <p
-            className="uppercase mb-2"
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 10, letterSpacing: '0.12em',
-              color: 'var(--accent)',
-            }}
-          >
-            Role
-          </p>
-          <p style={{ fontSize: 15, color: 'var(--ink)' }}>{details.role}</p>
-        </div>
-        <div>
-          <p
-            className="uppercase mb-2"
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 10, letterSpacing: '0.12em',
-              color: 'var(--accent)',
-            }}
-          >
-            Timeline
-          </p>
-          <p style={{ fontSize: 15, color: 'var(--ink)' }}>{details.timeline}</p>
+        Key Features
+      </p>
+
+        <div className="space-y-5">
+          {details.features.map((feature) => (
+            <div key={feature.description} className="flex items-start gap 3">
+              <span
+                className="shrink-0"
+                style={{
+                  color: "var(--accent)",
+                  marginTop: "2px",
+                  fontSize: "0.8rem",
+                  marginRight: "0.75rem",
+                }}
+              >
+                ♡
+              </span>
+              <p
+                style={{
+                  fontsize: 10,
+                  color: "var(--mid)",
+                  lineHeight: 1.7,
+                }}
+              >
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Technical Highlights */}
+      <div className="mb-14">
+      <p
+        className="uppercase mb-5"
+        style={{
+          fontFamily: "'DM Mono', monospace",
+          fontSize: 11,
+          letterSpacing: "0.12em",
+          color: "var(--accent)",
+        }}
+      >
+        Technical Highlights
+      </p>
+
+      <div className="space-y-5">
+        {details.highlights.map((highlight) => (
+          <div key={highlight.description} className="flex items-start gap 3">
+            <span
+                className="shrink-0"
+                style={{
+                  color: "var(--accent)",
+                  marginTop: "2px",
+                  fontSize: "0.8rem",
+                  marginRight: "0.75rem",
+                }}
+              >
+                ♡
+              </span>
+            <p
+              style={{
+                color: "var(--mid)",
+                lineHeight: 1.7,
+              }}
+            >
+              {highlight.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
 
       {/* Links */}
       <div className="flex gap-4">
@@ -146,15 +192,15 @@ export default function ProjectDetail() {
             GitHub ↗
           </a>
         )}
-        {details.live && (
+        {link && (
             <a
-            href={details.live}
+            href={link}
             target="_blank"
             rel="noreferrer"
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: 12, letterSpacing: '0.08em',
-              color: 'var(--ink)',
+              color: 'var(--accent)',
               border: '1px solid var(--border)',
               padding: '0.75rem 1.5rem',
               textDecoration: 'none', textTransform: 'uppercase',
