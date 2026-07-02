@@ -7,12 +7,8 @@ export default function Navbar() {
       style={{ background: 'var(--paper)', borderBottom: '1px solid var(--border)' }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-5"
     >
-      <Link
-        to="/"
-        style={{ fontFamily: "'DM Mono', monospace", color: 'var(--accent)', fontSize: 13, letterSpacing: '0.06em' }}
-        className="font-medium no-underline"
-      >
-        {personalData.logo}
+      <Link to="/" className="flex items-center">
+        <img src={personalData.logo} alt="Logo" className="h-8 w-auto" />
       </Link>
 
       <ul className="flex gap-10 list-none m-0 p-0">
