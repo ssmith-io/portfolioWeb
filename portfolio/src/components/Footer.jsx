@@ -10,11 +10,9 @@ export default function Footer() {
       className="flex items-center justify-between px-12 py-12"
       style={{ borderTop: '1px solid var(--border)' }}
     >
-      <span
-        style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, color: 'var(--accent)' }}
-      >
-        {logo}
-      </span>
+      <Link to="/" className="flex items-center">
+          <img src={personalData.logo} alt="Logo" className="h-8 w-auto" />
+      </Link>
 
       <span style={{ fontSize: 13, color: 'var(--mid)' }}>
         © {year} {personalData.name}

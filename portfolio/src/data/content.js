@@ -1,9 +1,6 @@
-
-import phishWiseImage from "/PhishWise Cover.jpg"
-
 export const personalData = {
   name: 'Sarah Smith',
-  logo: 'SARAH.DEV',
+  logo: "/Logo.png",
   email: 'ssmith.io.v0@gmail.com',
   title: 'Software Developer',
   tagline: 'Code. Create. Conquer.',
@@ -39,7 +36,7 @@ export const projects = [
     tags: ['Typescript', 'React', 'Next.js', 'PostgreSQL', 'Vercel'],
     type: 'Full-Stack Web Application',
     link: 'https://www.phishwise.org/',
-    image: phishWiseImage,
+    image: "/PhishWise Cover.jpg",
     details: {
       overview: `
         Developed a full-stack Security Awareness Management System that
