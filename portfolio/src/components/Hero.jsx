@@ -7,20 +7,18 @@ export default function Hero() {
       className="flex flex-col items-center justify-center text-center min-h-screen px-12"
       style={{ paddingTop: 80, background: 'var(--paper)' }}
     >
-      {/* Avatar */}
+      {/* Logo Animation */}
       <img
-      src="/Avatar Headshot.png"
+      src="/portfolioLogoAnimation.gif"
       alt={personalData.name}
-      className="animate-fade-up-1 rounded-full mb-8"
+      className="animate-fade-up-1 mb-8"
       style={{
-        width: 96,
-        height: 96,
-        border: '2px solid var(--accent)',
-        objectFit: 'cover',
+        width: 600,
+        height: 'auto',
       }}
       />
 
-      {/* Name */}
+      {/* Name
       <h1
         className="animate-fade-up-2 mb-3"
         style={{
@@ -33,9 +31,9 @@ export default function Hero() {
         }}
       >
         {personalData.name}
-      </h1>
+      </h1> */}
 
-      {/* Title */}
+      {/* Title
       <p
         className="animate-fade-up-2 mb-6 uppercase"
         style={{
@@ -46,7 +44,7 @@ export default function Hero() {
         }}
       >
         {personalData.title}
-      </p>
+      </p> */}
 
 
       {/* Social links */}

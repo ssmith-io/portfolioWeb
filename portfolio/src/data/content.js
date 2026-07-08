@@ -98,5 +98,4 @@ export const marqueeItems = [
   'Performance Optimization',
   'CI/CD Pipelines',
   'React & Next.js',
-  'AWS Infrastructure',
 ]
