@@ -4,48 +4,15 @@ import { Link } from 'react-router-dom'
 export default function Hero() {
   return (
     <section
-      className="flex flex-col items-center justify-center text-center min-h-screen px-12"
-      style={{ paddingTop: 80, background: 'var(--paper)' }}
-    >
-      {/* Logo Animation */}
-      <img
-      src="/portfolioLogoAnimation.gif"
-      alt={personalData.name}
-      className="animate-fade-up-1 mb-8"
-      style={{
-        width: 600,
-        height: 'auto',
-      }}
-      />
-
-      {/* Name
-      <h1
-        className="animate-fade-up-2 mb-3"
-        style={{
-          fontFamily: "'Syne', sans-serif",
-          fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-          fontWeight: 800,
-          lineHeight: 1,
-          letterSpacing: '-0.03em',
-          color: 'var(--ink)',
-        }}
-      >
-        {personalData.name}
-      </h1> */}
-
-      {/* Title
-      <p
-        className="animate-fade-up-2 mb-6 uppercase"
-        style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: 13,
-          letterSpacing: '0.15em',
-          color: 'var(--accent)',
-        }}
-      >
-        {personalData.title}
-      </p> */}
-
+  className="flex flex-col items-center justify-center text-center min-h-screen px-6 md:px-12"
+  style={{ paddingTop: 80, background: 'var(--paper)' }}
+>
+  {/* Logo Animation */}
+  <img
+    src="/portfolioLogoAnimation.gif"
+    alt={personalData.name}
+    className="animate-fade-up-1 mb-8 w-full max-w-[280px] md:max-w-[600px] h-auto"
+  />
 
       {/* Social links */}
       <div className="animate-fade-up-4 flex gap-4 mb-12">

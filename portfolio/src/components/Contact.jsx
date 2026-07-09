@@ -4,7 +4,7 @@ import { personalData } from '../data/content'
 export default function Contact() {
   return (
     <section
-      className="px-12 py-28 text-center"
+      className="px-6 md:px-12 py-16 md:py-28"
       style={{ background: 'var(--accent)' }}
       id="contact"
     >
@@ -38,7 +38,7 @@ export default function Contact() {
         {personalData.availability}. Let's build something great.
       </p>
 
-      <div className="flex gap-4 justify-center">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
         <a
           href={`mailto:${personalData.email}`}
           style={{

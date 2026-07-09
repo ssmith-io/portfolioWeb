@@ -2,7 +2,136 @@ import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { projects } from '../data/content'
 
-function ProjectCard({ project, index, total, mousePos, containerRef }) {
+// Shared card visuals (image area + content block), used by both
+// the desktop fanned card and the mobile carousel card.
+function ProjectCardBody({ project, hovered }) {
+  return (
+    <div
+      style={{
+        background: hovered ? 'var(--card)' : '#1e1c24',
+        border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
+        borderRadius: 4,
+        overflow: 'hidden',
+        boxShadow: hovered
+          ? `0 20px 60px rgba(0,0,0,0.6), 0 0 20px ${hovered ? 'var(--accent)' : 'transparent'}44`
+          : '0 8px 32px rgba(0,0,0,0.4)',
+        transition: 'border-color 0.2s, box-shadow 0.2s',
+      }}
+    >
+      {/* Image area */}
+      <div
+        style={{
+          height: 160,
+          background: 'var(--paper)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderBottom: '1px solid var(--border)',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        ) : (
+          <div
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: '3rem',
+              fontWeight: 800,
+              color: 'var(--border)',
+              userSelect: 'none',
+            }}
+          >
+            {project.num}
+          </div>
+        )}
+
+        {/* Hover overlay (desktop only, since hovered is always false on mobile) */}
+        {hovered && (
+          <div
+            style={{
+              position: 'absolute', inset: 0,
+              background: 'rgba(242,167,216,0.08)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: 11, letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--accent)',
+                background: 'var(--paper)',
+                padding: '0.4rem 0.75rem',
+                border: '1px solid var(--accent)',
+              }}
+            >
+              View Project ↗
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Card content */}
+      <div style={{ padding: '1.25rem' }}>
+        <p
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 10, letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--accent)',
+            marginBottom: '0.5rem',
+          }}
+        >
+          {project.type}
+        </p>
+        <h3
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: '1.1rem', fontWeight: 700,
+            color: 'var(--ink)', lineHeight: 1.2,
+            marginBottom: '0.75rem',
+          }}
+        >
+          {project.title}
+        </h3>
+        <p
+          style={{
+            fontSize: 13, lineHeight: 1.6,
+            color: 'var(--mid)',
+            marginBottom: '1rem',
+          }}
+        >
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-1">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: 9, letterSpacing: '0.06em',
+                padding: '0.2rem 0.5rem',
+                border: '1px solid var(--border)',
+                color: 'var(--mid)',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Desktop: fanned card with mouse-tracking + hover physics
+function ProjectCard({ project, index, total, mousePos }) {
   const navigate = useNavigate()
   const [hovered, setHovered] = useState(false)
 
@@ -39,128 +168,22 @@ function ProjectCard({ project, index, total, mousePos, containerRef }) {
         transformOrigin: 'bottom center',
       }}
     >
-      {/* Card */}
-      <div
-        style={{
-          background: hovered ? 'var(--card)' : '#1e1c24',
-          border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
-          borderRadius: 4,
-          overflow: 'hidden',
-          boxShadow: hovered
-            ? `0 20px 60px rgba(0,0,0,0.6), 0 0 20px ${hovered ? 'var(--accent)' : 'transparent'}44`
-            : '0 8px 32px rgba(0,0,0,0.4)',
-          transition: 'border-color 0.2s, box-shadow 0.2s',
-        }}
-      >
-        {/* Image area */}
-        <div
-          style={{
-            height: 160,
-            background: 'var(--paper)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderBottom: '1px solid var(--border)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          {project.image ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          ) : (
-            <div
-              style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: '3rem',
-                fontWeight: 800,
-                color: 'var(--border)',
-                userSelect: 'none',
-              }}
-            >
-              {project.num}
-            </div>
-          )}
+      <ProjectCardBody project={project} hovered={hovered} />
+    </div>
+  )
+}
 
-          {/* Hover overlay */}
-          {hovered && (
-            <div
-              style={{
-                position: 'absolute', inset: 0,
-                background: 'rgba(242,167,216,0.08)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: 11, letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--accent)',
-                  background: 'var(--paper)',
-                  padding: '0.4rem 0.75rem',
-                  border: '1px solid var(--accent)',
-                }}
-              >
-                View Project ↗
-              </span>
-            </div>
-          )}
-        </div>
+// Mobile: plain card in a horizontal scroll-snap row, no fan/hover physics
+function MobileProjectCard({ project }) {
+  const navigate = useNavigate()
 
-        {/* Card content */}
-        <div style={{ padding: '1.25rem' }}>
-          <p
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 10, letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'var(--accent)',
-              marginBottom: '0.5rem',
-            }}
-          >
-            {project.type}
-          </p>
-          <h3
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontSize: '1.1rem', fontWeight: 700,
-              color: 'var(--ink)', lineHeight: 1.2,
-              marginBottom: '0.75rem',
-            }}
-          >
-            {project.title}
-          </h3>
-          <p
-            style={{
-              fontSize: 13, lineHeight: 1.6,
-              color: 'var(--mid)',
-              marginBottom: '1rem',
-            }}
-          >
-            {project.description}
-          </p>
-          <div className="flex flex-wrap gap-1">
-            {project.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: 9, letterSpacing: '0.06em',
-                  padding: '0.2rem 0.5rem',
-                  border: '1px solid var(--border)',
-                  color: 'var(--mid)',
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+  return (
+    <div
+      onClick={() => navigate(`/projects/${project.id}`)}
+      className="snap-center shrink-0"
+      style={{ width: 260, cursor: 'pointer' }}
+    >
+      <ProjectCardBody project={project} hovered={false} />
     </div>
   )
 }
@@ -182,28 +205,37 @@ export default function ProjectDeck() {
   }
 
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        position: 'relative',
-        height: 420,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          index={index}
-          total={projects.length}
-          mousePos={mousePos}
-          containerRef={containerRef}
-        />
-      ))}
-    </div>
+    <>
+      {/* Mobile: horizontal scroll-snap carousel */}
+      <div className="md:hidden flex gap-4 overflow-x-auto px-6 pb-4 snap-x snap-mandatory">
+        {projects.map((project) => (
+          <MobileProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+
+      {/* Desktop: fanned deck with mouse-tracking */}
+      <div
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="hidden md:flex"
+        style={{
+          position: 'relative',
+          height: 420,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            total={projects.length}
+            mousePos={mousePos}
+          />
+        ))}
+      </div>
+    </>
   )
 }

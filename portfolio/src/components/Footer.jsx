@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="flex items-center justify-between px-12 py-12"
+      className="flex flex-col md:flex-row items-center justify-between gap-6 px-6 md:px-12 py-12 text-center"
       style={{ borderTop: '1px solid var(--border)' }}
     >
       <Link to="/" className="flex items-center">

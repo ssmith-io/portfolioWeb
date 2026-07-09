@@ -4,7 +4,7 @@ import { projects } from '../data/content'
 
 export default function Projects() {
   return (
-    <section className="px-12 py-28" id="projects">
+    <section className="px-6 md:px-12 py-16 md:py-28" id="projects">
       <SectionHeader
         tag="// Selected Work"
         title="Projects"
@@ -19,7 +19,7 @@ export default function Projects() {
         {projects.map((project, i) => (
           <div
             key={project.id}
-            className="flex items-center justify-between py-6"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-6"
             style={{ borderBottom: '1px solid var(--border)' }}
           >
             <div className="flex items-center gap-6">

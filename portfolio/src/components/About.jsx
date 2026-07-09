@@ -4,7 +4,7 @@ import { personalData } from '../data/content'
 export default function About() {
   return (
     <section
-      className="px-12 py-28"
+      className="px-6 md:px-12 py-16 md:py-28"
       style={{
         background: 'var(--card)',
         borderTop: '1px solid var(--border)',
